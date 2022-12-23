@@ -1,14 +1,15 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
+  # Activa el workflow cada vez que hay un push a la rama `main`
+  # ¿Estás usando un nombre diferente de rama? Reemplaza `main` con el nombre de tu rama
+  
   push:
-    branches: [main]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
+    branches: [master]
+  # Te permite ejecutar este workflow manualmente desde la pestaña Actions en GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
+# Permite clonar el repositorio y desplegar el proyecto
 permissions:
   contents: read
   pages: write
@@ -23,9 +24,9 @@ jobs:
       - name: Install, build, and upload your site output
         uses: withastro/action@v0
         # with:
-        # path: . # The root location of your Astro project inside the repository. (optional)
-        # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
-        # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+            # path: . # La ubicación de la raíz de tu proyecto de Astro dentro del repositorio. (opcional)
+            # node-version: 16 # La versión específica de Node que debe utilizarse para compilar tu proyecto. Por defecto es la 16. (opcional)
+            # package-manager: yarn # El gestor de paquetes de Node que debe instalar las dependencias y compilar tu proyecto. Automáticamente detectadas con base en tu archivo lockfile. (opcional)
 
   deploy:
     needs: build
